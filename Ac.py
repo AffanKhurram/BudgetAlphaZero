@@ -27,7 +27,7 @@ class ActorCritic:
             self.play_game()
         Path("SelfplayGames").mkdir(parents=True, exist_ok=True)
         pickle.dump(self.game_history, open(
-            'SelfplayGames/game_history.pkl', 'wb'))
+            'SelfplayGames/' + self.game_type.name + 'games.pkl', 'wb'))
 
     def play_game(self):
         board = self.game_type()
@@ -53,7 +53,7 @@ class ActorCritic:
         self.game_history.append(examples)
 
     def train_model(self, num_steps, batch_size=32):
-        temp = pickle.load(open('SelfplayGames/game_history.pkl', 'rb'))
+        temp = pickle.load(open('SelfplayGames/' + self.game_type.name + 'games.pkl', 'rb'))
         # temp = self.game_history
         lst = []
         for r in temp:
