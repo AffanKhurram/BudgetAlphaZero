@@ -8,7 +8,7 @@ from MCTS import MCTS
 import numpy as np
 from Connect4 import Connect4
 
-player = ActorCritic(Connect4)
+player = ActorCritic(Board)
 
 for i in range(10):
   player.generate_games()

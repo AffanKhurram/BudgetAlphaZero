@@ -39,7 +39,6 @@ class Board:
             raise ValueError('Incorrect move given')
         symbol = self.which_turn()
         unravel = np.unravel_index(idx, self.board.shape)
-        print(unravel)
         self.board[unravel] = symbol
         self.split_board[unravel[0], unravel[1], 2] = 0
         if symbol == -1:
