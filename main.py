@@ -4,7 +4,6 @@ import tensorflow
 from tensorflow import keras
 #%%
 from Board import Board
-from Player import Player
 from MCTS import MCTS
 import numpy as np
 from Connect4 import Connect4
