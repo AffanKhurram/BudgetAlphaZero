@@ -113,6 +113,7 @@ class Table():
 class Connect4(Board):
     num_actions = 7
     shape = (6, 7, 3)
+    name = "Connect4"
 
     def __init__(self):
         self.board = Table()

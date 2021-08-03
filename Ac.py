@@ -53,8 +53,8 @@ class ActorCritic:
         self.game_history.append(examples)
 
     def train_model(self, num_steps, batch_size=32):
-        # temp = pickle.load(open('SelfplayGames/game_history.pkl', 'rb'))
-        temp = self.game_history
+        temp = pickle.load(open('SelfplayGames/game_history.pkl', 'rb'))
+        # temp = self.game_history
         lst = []
         for r in temp:
             for c in r:
@@ -79,5 +79,5 @@ class ActorCritic:
         rewards = np.array(rewards)
 
         self.model.fit(x=states, y=[np.expand_dims(tf.one_hot(
-            pis, 9), axis=[1, 2]), rewards], batch_size=batch_size)
-        self.model.save('model' + time.strftime("%Y%m%d-%H%M%S") + '.h5')
+            pis, self.game_type.num_actions), axis=[1, 2]), rewards], batch_size=batch_size)
+        self.model.save('models/' + self.game_type.name + 'model' + time.strftime("%Y%m%d-%H%M%S") + '.h5')

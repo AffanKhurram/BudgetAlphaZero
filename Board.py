@@ -5,6 +5,7 @@ import numpy as np
 class Board:
     num_actions = 9
     shape = (3, 3, 3)
+    name = "TicTacToe"
 
     def __init__(self):
         self.board = np.zeros((3, 3))
